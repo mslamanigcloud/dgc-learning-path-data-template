@@ -53,16 +53,19 @@ def check_file_format(event: dict, context: dict):
     # check if the file name has the good format
     # required format: <table_name>_<date>.<extension>
     try:
-        # TODO: 
-        # create some assertions here to validate your file. It is:
-        #     - required to have two parts.
-        #     - the first part is required to be an accepted table name
-        #     - the second part is required to be a 'YYYYMMDD'-formatted date 
-        #     - required to have the expected extension
+        # assert the file name format
+        splitted = file_name.split('_')
+        assert len(splitted) == 2, 'The file name must have two parts separated by `_`'
 
-        ...
+        # assert the table name is one of the required table names
+        table_name, date = splitted
+        assert table_name in FILES_AND_EXTENSION_SPEC.keys(), f'The table name must be one of {list(FILES_AND_EXTENSION_SPEC.keys())}'
+        
+        # assert the date format
+        datetime.datetime.strptime(date, '%Y%m%d')
 
-        table_name = "<to_replace_with_your_first_file_part_variable>"
+        # assert the extension
+        assert file_extention == FILES_AND_EXTENSION_SPEC[table_name], f'The file extension must be {FILES_AND_EXTENSION_SPEC[table_name]}'
 
         # if all checks are succesful then publish it to the PubSub topic
         publish_to_pubsub(
@@ -145,7 +148,7 @@ if __name__ == '__main__':
     # it will have no impact on the Cloud Function when deployed.
     import os
     
-    project_id = '<YOUR-PROJECT-ID>'
+    project_id = 'sandbox-athevenot'
 
     realpath = os.path.realpath(__file__)
     material_path = os.sep.join(['', *realpath.split(os.sep)[:-4], '__materials__'])
