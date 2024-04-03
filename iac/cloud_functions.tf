@@ -27,6 +27,7 @@ resource "google_cloudfunctions_function" "function" {
   region  = "europe-west1"
   name    = "check-file-format"
   runtime = "python311" # of course changeable
+  project = var.project_id
 
   # Get the source code of the cloud function as a Zip compression
   source_archive_bucket = google_storage_bucket.cloud_functions_sources.name
