@@ -57,16 +57,17 @@ resource "google_storage_bucket" "cloud_functions_sources" {
   uniform_bucket_level_access = true
 }
 
-# populate the utils bucket with all the folders contained in the queries folder
+# populate the utils bucket with all the folders contained in the queries folder which is ../queries
 resource "google_storage_bucket_object" "queries" {
   name    = "queries/"
   bucket  = google_storage_bucket.magasin_cie_utils.name
-  content = file("${path.module}/queries/")
+  content = file("${path.module}/../queries")
 }
 
-# populate the utils bucket with all the folders contained in the schemas folder
+# populate the utils bucket with all the folders contained in the schemas folder which is ../schemas
 resource "google_storage_bucket_object" "schemas" {
   name    = "schemas/"
   bucket  = google_storage_bucket.magasin_cie_utils.name
-  content = file("${path.module}/schemas/")
+  content = file("${path.module}/../schemas")
 }
+
