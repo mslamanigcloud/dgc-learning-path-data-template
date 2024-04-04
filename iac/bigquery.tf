@@ -17,7 +17,7 @@ resource "google_bigquery_table" "store_raw" {
   dataset_id = google_bigquery_dataset.raw.dataset_id
   table_id   = "store"
   project    = var.project_id
-  schema     = file("schemas/raw/store.json")
+  schema     = file("../schemas/raw/store.json")
 }
 
 # Create a BigQuery table store in the dataset cleaned (schema is schemas/cleaned/store.json).
@@ -25,5 +25,5 @@ resource "google_bigquery_table" "store_cleaned" {
   dataset_id = google_bigquery_dataset.cleaned.dataset_id
   table_id   = "store"
   project    = var.project_id
-  schema     = file("schemas/cleaned/store.json")
+  schema     = file("../schemas/cleaned/store.json")
 }
