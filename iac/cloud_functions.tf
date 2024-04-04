@@ -15,7 +15,7 @@ resource "google_storage_bucket_object" "zip_trigger_on_file" {
   name   = "src-${data.archive_file.source_trigger_on_file.output_md5}.zip"
   bucket = google_storage_bucket.cloud_functions_sources.name
 
-  # Dependencies are automatically inferred so these lines can be deleted
+  # Dependencies are automatically inferred so these lines can be deleted 
   depends_on = [
     google_storage_bucket.cloud_functions_sources, # declared in `storage.tf`
     data.archive_file.source_trigger_on_file
