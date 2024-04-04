@@ -90,13 +90,8 @@ def publish_to_pubsub(data: bytes, attributes: dict):
          data (bytes): Encoded string as data for the message.
          attributes (dict): Custom attributes for the message.
     """
-    ## this small part is here to be able to simulate the function but
-    ## remove this part when you are ready to deploy your Cloud Function. 
-    ## [start simulation]
-    print('Your file is considered as valid. It will be published to Pubsub.')
-    # return
-    ## [end simulation]
 
+    print('Your file is considered as valid. It will be published to Pubsub.')
 
     # retrieve the GCP_PROJECT from the reserved environment variables
     # more: https://cloud.google.com/functions/docs/configuring/env-var#python_37_and_go_111
@@ -122,14 +117,8 @@ def move_to_invalid_file_folder(bucket_name: str, blob_path: str):
          blob_path (str): Path of the blob inside the bucket.
     """
 
-    ## this small part is here to be able to simulate the function but
-    ## remove this part when you are ready to deploy your Cloud Function. 
-    ## [start simulation]
     print('Your file is considered as invalid. It will be moved to invalid/.')
-    # return
-    ## [end simulation]
-    
-    
+
     # connect to the Cloud Storage client
     storage_client = storage.Client()
 
