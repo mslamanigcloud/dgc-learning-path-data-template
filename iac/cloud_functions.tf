@@ -28,7 +28,9 @@ resource "google_cloudfunctions_function" "function_trigger_on_file" {
   name    = "check-file-format"
   runtime = "python311" # of course changeable
   project = var.project_id
-
+  environment_variables = {
+    GCP_PROJECT = var.project_id
+  }
   # Get the source code of the cloud function as a Zip compression
   source_archive_bucket = google_storage_bucket.cloud_functions_sources.name
   source_archive_object = google_storage_bucket_object.zip_trigger_on_file.name
