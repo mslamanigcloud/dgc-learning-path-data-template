@@ -57,3 +57,14 @@ resource "google_storage_bucket" "cloud_functions_sources" {
   uniform_bucket_level_access = true
 }
 
+resource "google_storage_bucket_object" "queries" {
+  name    = "queries/"
+  content = "../queries/"
+  bucket  = "${var.project_id}_magasin_cie_utils"
+}
+
+resource "google_storage_bucket_object" "schemas" {
+  name    = "schemas/"
+  content = "../schemas/"
+  bucket  = "${var.project_id}_magasin_cie_utils"
+}
