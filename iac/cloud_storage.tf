@@ -57,17 +57,20 @@ resource "google_storage_bucket" "cloud_functions_sources" {
   uniform_bucket_level_access = true
 }
 
-# populate the utils bucket with all the folders contained in the queries folder which is ../queries
+# populate the utils bucket with all the folders contained in the queries folder
 resource "google_storage_bucket_object" "queries" {
-  name    = "queries/"
-  bucket  = google_storage_bucket.magasin_cie_utils.name
-  content = file("${path.module}/../queries")
+  for_each   = fileset("../queries", "**/*")
+  name       = "queries/${each.value}"
+  source     = "../queries/${each.value}"
+  bucket     = google_storage_bucket.magasin_cie_utils.name
+  depends_on = [google_storage_bucket.magasin_cie_utils]
 }
 
-# populate the utils bucket with all the folders contained in the schemas folder which is ../schemas
-resource "google_storage_bucket_object" "schemas" {
-  name    = "schemas/"
-  bucket  = google_storage_bucket.magasin_cie_utils.name
-  content = file("${path.module}/../schemas")
+# populate the utils bucket with all the folders contained in the schema folder
+resource "google_storage_bucket_object" "schema" {
+  for_each   = fileset("../schema", "**/*")
+  name       = "schema/${each.value}"
+  source     = "../schema/${each.value}"
+  bucket     = google_storage_bucket.magasin_cie_utils.name
+  depends_on = [google_storage_bucket.magasin_cie_utils]
 }
-
