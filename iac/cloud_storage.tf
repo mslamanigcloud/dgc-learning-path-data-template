@@ -66,11 +66,11 @@ resource "google_storage_bucket_object" "queries" {
   depends_on = [google_storage_bucket.magasin_cie_utils]
 }
 
-# populate the utils bucket with all the folders contained in the schema folder
+# populate the utils bucket with all the folders contained in the schemas folder
 resource "google_storage_bucket_object" "schema" {
-  for_each   = fileset("../schema", "**/*")
-  name       = "schema/${each.value}"
-  source     = "../schema/${each.value}"
+  for_each   = fileset("../schemas", "**/*")
+  name       = "schemas/${each.value}"
+  source     = "../schemas/${each.value}"
   bucket     = google_storage_bucket.magasin_cie_utils.name
   depends_on = [google_storage_bucket.magasin_cie_utils]
 }
