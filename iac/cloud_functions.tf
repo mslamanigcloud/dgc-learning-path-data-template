@@ -79,7 +79,7 @@ resource "google_cloudfunctions_function" "function_trigger_on_file" {
 resource "google_cloudfunctions_function" "function_dispatch_workflow" {
   region  = "europe-west1"
   name    = "dispatch-workflow"
-  runtime = "python311" # of course changeable
+  runtime = "python310" # of course changeable
   project = var.project_id
   environment_variables = {
     GCP_PROJECT     = var.project_id
