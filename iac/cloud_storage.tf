@@ -43,17 +43,17 @@ resource "google_storage_bucket" "magasin_cie_landing" {
   }
 }
 
-# create the input, archive, reject, invalid folders in the landing bucket
+# create the input, archive, reject, invalid empty folders in the landing bucket
 resource "google_storage_bucket_object" "landing_folders" {
   for_each = {
-    "input/"   = "input/",
-    "archive/" = "archive/",
-    "reject/"  = "reject/",
-    "invalid/" = "invalid/"
+    "input/"   = "",
+    "archive/" = "",
+    "reject/"  = "",
+    "invalid/" = "",
   }
-  name       = each.value
-  bucket     = google_storage_bucket.magasin_cie_landing.name
-  depends_on = [google_storage_bucket.magasin_cie_landing]
+  name    = each.key
+  content = each.value
+  bucket  = google_storage_bucket.storage_bucket.name
 }
 
 resource "google_storage_bucket" "magasin_cie_utils" {
