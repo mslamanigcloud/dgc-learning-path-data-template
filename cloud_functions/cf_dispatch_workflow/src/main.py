@@ -25,7 +25,7 @@ def receive_messages(event: dict, context: dict):
     print(pubsub_event)
     
     # decode the data giving the targeted table name
-    table_name = pubsub_event['data'].decode('utf-8')
+    table_name = base64.b64decode(pubsub_event['data']).decode('utf-8')
 
     # get the blob infos from the attributes
     bucket_name = pubsub_event['attributes']['bucket_name']
@@ -226,7 +226,7 @@ if __name__ == '__main__':
 
     # test your Cloud Function for the store file.
     mock_event = {
-        'data': 'store'.encode('utf-8'),
+        'data': base64.b64encode('store'.encode('utf-8')),
         'attributes': {
             'bucket_name': f'{project_id}_magasin_cie_landing',
             'blob_path': os.path.join('input', 'store_20220531.csv'),
