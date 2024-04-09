@@ -46,10 +46,10 @@ resource "google_storage_bucket" "magasin_cie_landing" {
 # create the input, archive, reject, invalid empty folders in the landing bucket
 resource "google_storage_bucket_object" "landing_folders" {
   for_each = {
-    "input/"   = "",
-    "archive/" = "",
-    "reject/"  = "",
-    "invalid/" = "",
+    "input/"   = " ",
+    "archive/" = " ",
+    "reject/"  = " ",
+    "invalid/" = " ",
   }
   name    = each.key
   content = each.value
@@ -86,4 +86,4 @@ resource "google_storage_bucket_object" "schema" {
   source     = "../schemas/${each.value}"
   bucket     = google_storage_bucket.magasin_cie_utils.name
   depends_on = [google_storage_bucket.magasin_cie_utils]
-}
+} 
