@@ -53,7 +53,7 @@ resource "google_storage_bucket_object" "landing_folders" {
   }
   name    = each.key
   content = each.value
-  bucket  = google_storage_bucket.storage_bucket.name
+  bucket  = google_storage_bucket.magasin_cie_landing.name
 }
 
 resource "google_storage_bucket" "magasin_cie_utils" {
