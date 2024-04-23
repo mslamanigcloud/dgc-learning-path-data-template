@@ -86,7 +86,7 @@ resource "google_cloudfunctions_function" "function_dispatch_workflow" {
     pubsub_topic_id   = google_pubsub_topic.valid_file.name
     utils_bucket_id   = google_storage_bucket.magasin_cie_utils.name
     dataset_id        = google_bigquery_dataset.raw.dataset_id
-    workflow_location = google_workflows_workflow.store_wkf.location
+    workflow_location = google_workflows_workflow.store_wkf.region
   }
   # Get the source code of the cloud function as a Zip compression
   source_archive_bucket = google_storage_bucket.cloud_functions_sources.name
