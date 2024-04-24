@@ -12,6 +12,12 @@ resource "google_bigquery_dataset" "cleaned" {
   project    = var.project_id
 }
 
+resource "google_bigquery_dataset" "staging" {
+  dataset_id = "staging"
+  location   = "EU"
+  project    = var.project_id
+}
+
 # Create a BigQuery table store in the dataset raw (schema is schemas/raw/store.json).
 resource "google_bigquery_table" "store_raw" {
   dataset_id          = google_bigquery_dataset.raw.dataset_id
@@ -39,8 +45,8 @@ resource "google_bigquery_table" "customer_raw" {
 }
 
 resource "google_bigquery_table" "customer_staging" {
-  dataset_id          = google_bigquery_dataset.cleaned.dataset_id
-  table_id            = "customer_staging"
+  dataset_id          = google_bigquery_dataset.staging.dataset_id
+  table_id            = "customer"
   project             = var.project_id
   schema              = file("../schemas/cleaned/customer.json")
   deletion_protection = false
