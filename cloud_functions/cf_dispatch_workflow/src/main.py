@@ -92,7 +92,7 @@ def insert_into_raw(table_name: str, bucket_name: str, blob_path: str):
     # store the table id
     table_id = f'{os.environ["GCP_PROJECT"]}.{os.environ["dataset_id"]}.{table_name}'
 
-    if table_name == 'store':
+    if table_name in ['store', 'customer']:
         # create the LoadJobConfig object
         job_config = bigquery.LoadJobConfig(
             schema=schema,
