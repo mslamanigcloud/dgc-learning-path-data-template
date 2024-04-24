@@ -68,3 +68,7 @@ You can uncomment the code to see what happens in the Cloud Build Trigger.
 
 At least one bucket configuration is missing in the Terraform. Your last task is to find this and fix it.
 The [Storage Bucket documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket) of Terraform will help you.
+
+<div style="text-align: right"> 
+    <a href="chapter_03.md">Next Chapter</a>
+</div>

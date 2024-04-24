@@ -50,3 +50,7 @@ Tip 3: For example, do you think the dashboard(s) you designed for Aziz is/are r
 #### To go further
 
 What are the limitations of Looker Studio? 
+
+<div style="text-align: right"> 
+    <a href="chapter_08.md">Next Chapter</a>
+</div>

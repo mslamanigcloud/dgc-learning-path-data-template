@@ -82,3 +82,7 @@ Check for this article on deduplication.
 [Deduplication in BigQuery Tables: A Comparative Study of 7 Approaches](https://medium.com/google-cloud/deduplication-in-bigquery-tables-a-comparative-study-of-7-approaches-f48966eeea2b?sk=674696a12c2a2f805ba885466773353b)
 
 Why do we deduplicate our data in this delta integration ? Why not for the full integration of stores ?
+
+<div style="text-align: right"> 
+    <a href="chapter_06.md">Next Chapter</a>
+</div>

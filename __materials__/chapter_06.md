@@ -168,3 +168,8 @@ If you have finished your pipeline, your folder may seems like the following.
         ├── basket_detail.json
         └── customer.json
 ```
+
+
+<div style="text-align: right"> 
+    <a href="chapter_07.md">Next Chapter</a>
+</div>

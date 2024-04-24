@@ -50,3 +50,7 @@ Go to the Codelab [Deploy Cloud Functions on GCP with Terraform](https://codelab
 
 
 When everything is done and works well, if not already done, you can activate the `move_to_invalid_file_folder()` function in the `cloud_functions/cf_trigger_on_file/src/main.py` file.
+
+<div style="text-align: right"> 
+    <a href="chapter_04.md">Next Chapter</a>
+</div>

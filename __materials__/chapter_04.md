@@ -90,3 +90,7 @@ You can `CRTL+F` on `TODO: 1` then `TODO: 2` and `TODO: 3`.
 When everything is done and works well, if not already done, you can activate the `publish_to_pubsub()` function in the `cloud_functions/cf_trigger_on_file/src/main.py` file. And try the full Cloud Function to BigQuery pipeline. You will see your cleaned data ingested in the BigQuery table `<project_id>.cleaned.store`.
 
 (You can also intergrate the `__materials__/data/init/store_20220531.csv`)
+
+<div style="text-align: right"> 
+    <a href="chapter_05.md">Next Chapter</a>
+</div>
