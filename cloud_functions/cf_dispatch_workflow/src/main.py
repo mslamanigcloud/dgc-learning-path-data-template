@@ -218,7 +218,7 @@ if __name__ == '__main__':
     # it will have no impact on the Cloud Function when deployed.
     import os
     
-    project_id = 'sandbox-athevenot'
+    project_id = 'sandbox-jrubin'
     os.environ['GCP_PROJECT'] = project_id
     os.environ['utils_bucket_id'] = f'{project_id}_magasin_cie_utils'
     os.environ['dataset_id'] = 'raw'
